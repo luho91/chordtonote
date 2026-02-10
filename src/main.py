@@ -22,15 +22,19 @@ def main():
     
     # quality aliases
     quality_aliases = {
+        "min": "minor",
         "m": "minor",
         "": "major",
-        # add more if needed, but most are already full
+        "MAJ": "major",
     }
     
     try:
         #extract root note and chord quality
         root, quality, slash_notes = extract_root_regex(args.chord)
+        quality = quality.lower()
         quality = quality_aliases.get(quality, quality)
+        if quality not in chord_master_map:
+            raise ValueError(f"{args.chord} is not a chord bruh.")
         intervals = chord_master_map.get(quality)
         if intervals is None:
             raise ValueError(f"Unknown chord quality: {quality}")

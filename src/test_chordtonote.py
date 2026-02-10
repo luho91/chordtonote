@@ -267,14 +267,14 @@ class TestChordToNote(unittest.TestCase):
 
     def test_main_diminished(self):
         old_argv = sys.argv
-        sys.argv = ["main.py", "Cdim"]
+        sys.argv = ["main.py", "bdIm"]
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
             main()
             output = captured_output.getvalue()
-            self.assertIn("Chord: Cdim", output)
-            self.assertIn("Notes: C Eb Gb", output)
+            self.assertIn("Chord: bdim", output)
+            self.assertIn("Notes: B D F", output)
         finally:
             sys.stdout = sys.__stdout__
             sys.argv = old_argv
