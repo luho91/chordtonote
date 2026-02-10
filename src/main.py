@@ -13,6 +13,7 @@ def main():
         )
     # Add arguments
     parser.add_argument("chord", type=str, help="The chord name to convert (e.g., Cmaj7, D#m, F#dim).")
+    parser.add_argument("-v", "--version", help="Display the program's version.")
     # Parse arguments
     args = parser.parse_args()
 
